@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ViewSpaceSurroundingTeam">
+        <item name="android:paddingLeft">@dimen/view_space_medium</item>
+        <item name="android:paddingStart">@dimen/view_space_medium</item>
+        <item name="android:paddingRight">@dimen/view_space_medium</item>
+        <item name="android:paddingEnd">@dimen/view_space_medium</item>
+    </style>
+</resources>

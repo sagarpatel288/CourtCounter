@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Team Title Style-->
+    <style name="TxtTeamTitles">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/txtTeamTitleColor</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">@dimen/txt_heading_three</item>
+    </style>
+
+    <!--Team Score Style-->
+    <style name="MatchWidthWrapHeight.TxtTeamTitles.TxtTeamScores">
+        <item name="android:textColor">@color/txtScoreColor</item>
+        <item name="android:textSize">@dimen/txt_heading_one_large</item>
+        <item name="android:layout_marginTop">@dimen/view_space</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+</resources>

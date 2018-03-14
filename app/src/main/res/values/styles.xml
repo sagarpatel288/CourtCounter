@@ -1,0 +1,45 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Primary theme color of the app (sets background color of app bar) -->
+        <item name="colorPrimary">#FF9800</item>
+        <!-- Background color of buttons in the app -->
+        <item name="colorButtonNormal">#FF9800</item>
+    </style>
+
+    <!--Surrounding space to both team layouts-->
+    <style name="ViewSpaceSurroundingTeam">
+        <item name="android:paddingLeft">@dimen/view_space_medium</item>
+        <item name="android:paddingRight">@dimen/view_space_medium</item>
+    </style>
+
+    <style name="MatchWidthWrapHeight">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="MatchWidthWrapHeight.Btn">
+        <item name="android:background">@drawable/selector_btns</item>
+    </style>
+
+    <!--Team Title Style-->
+    <style name="MatchWidthWrapHeight.TxtTeamTitles">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/txtTeamTitleColor</item>
+        <item name="android:textSize">@dimen/txt_heading_three</item>
+    </style>
+
+    <!--Team Score Style-->
+    <style name="MatchWidthWrapHeight.TxtTeamTitles.TxtTeamScores">
+        <item name="android:textColor">@color/txtScoreColor</item>
+        <item name="android:textSize">@dimen/txt_heading_one_large</item>
+        <item name="android:layout_marginTop">@dimen/view_space</item>
+    </style>
+
+    <style name="WrapStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+</resources>

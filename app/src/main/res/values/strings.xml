@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Court Counter</string>
+    <string name="label_team_a">Team A</string>
+    <string name="label_team_a_value">0</string>
+    <string name="label_plus_three">+3 points</string>
+    <string name="label_plus_two">+2 points</string>
+    <string name="label_team_a_free_throw">Free throw</string>
+    <string name="label_team_b">Team B</string>
+    <string name="label_team_b_value">0</string>
+    <string name="label_reset">Reset</string>
+    <string name="label_result">Result</string>
+    <string name="label_win">Woot! # won!</string>
+    <string name="label_tie">It\'s a tie!</string>
+</resources>

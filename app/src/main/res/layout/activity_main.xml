@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.courtcounter.MainActivity"
+    android:paddingTop="@dimen/view_space"
+    android:paddingBottom="@dimen/view_space_large"
+    android:baselineAligned="false"
+    android:background="@drawable/basketball"
+    >
+
+    <LinearLayout
+        android:id="@+id/layout_teams_both"
+        style="@style/MatchWidthWrapHeight"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        >
+
+        <LinearLayout
+            android:id="@+id/layout_team_a"
+            style="@style/ViewSpaceSurroundingTeam"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:paddingBottom="@dimen/view_space_short"
+            >
+
+            <TextView
+                android:id="@+id/tv_team_a"
+                style="@style/TxtTeamTitles"
+                android:text="@string/label_team_a"
+                />
+
+            <TextView
+                android:id="@+id/team_a_score"
+                style="@style/MatchWidthWrapHeight.TxtTeamTitles.TxtTeamScores"
+                android:text="@string/label_team_a_value"
+                />
+
+            <Button
+                android:id="@+id/btn_team_a_plus_three"
+                style="@style/MatchWidthWrapHeight"
+                android:layout_marginTop="@dimen/view_space_medium"
+                android:text="@string/label_plus_three"
+                android:onClick="teamAaddThree"
+                />
+
+            <Button
+                android:id="@+id/btn_team_a_plus_two"
+                style="@style/MatchWidthWrapHeight"
+                android:layout_marginTop="@dimen/view_space_short"
+                android:text="@string/label_plus_two"
+                android:onClick="teamAaddTwo"
+                />
+
+            <Button
+                android:id="@+id/btn_team_a_free_throw"
+                style="@style/MatchWidthWrapHeight"
+                android:layout_marginTop="@dimen/view_space_short"
+                android:text="@string/label_team_a_free_throw"
+                android:onClick="teamAaddOne"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/view_divider_width"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            />
+
+        <LinearLayout
+            android:id="@+id/layout_team_b"
+            style="@style/ViewSpaceSurroundingTeam"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:paddingBottom="@dimen/view_space_short"
+            >
+
+            <TextView
+                android:id="@+id/tv_team_b"
+                style="@style/TxtTeamTitles"
+                android:text="@string/label_team_b"
+                />
+
+            <TextView
+                android:id="@+id/team_b_score"
+                style="@style/MatchWidthWrapHeight.TxtTeamTitles.TxtTeamScores"
+                android:text="@string/label_team_b_value"
+                />
+
+            <Button
+                android:id="@+id/btn_team_b_plus_three"
+                style="@style/MatchWidthWrapHeight"
+                android:layout_marginTop="@dimen/view_space_medium"
+                android:text="@string/label_plus_three"
+                android:onClick="teamBaddThree"
+                />
+
+            <Button
+                android:id="@+id/btn_team_b_plus_two"
+                style="@style/MatchWidthWrapHeight"
+                android:layout_marginTop="@dimen/view_space_short"
+                android:text="@string/label_plus_two"
+                android:onClick="teamBaddTwo"
+                />
+
+            <Button
+                android:id="@+id/btn_team_b_free_throw"
+                style="@style/MatchWidthWrapHeight"
+                android:layout_marginTop="@dimen/view_space_short"
+                android:text="@string/label_team_a_free_throw"
+                android:onClick="teamBaddOne"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/view_space_medium"
+        android:layout_marginRight="@dimen/view_space_medium"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:text="@string/label_reset"
+        android:onClick="resetScores"
+        />
+
+    <Button
+        android:id="@+id/btn_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/view_space_medium"
+        android:layout_marginLeft="@dimen/view_space_medium"
+        android:layout_alignParentBottom="true"
+        android:text="@string/label_result"
+        android:onClick="result"
+        />
+
+    <TextView
+        android:id="@+id/tv_result"
+        style="@style/WrapStyle"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_above="@id/btn_result"
+        android:layout_marginBottom="@dimen/view_space_large"
+        android:textColor="@color/txtScoreColor"
+        android:textStyle="italic"
+        android:textSize="@dimen/txt_heading_one"
+        />
+
+</RelativeLayout>
