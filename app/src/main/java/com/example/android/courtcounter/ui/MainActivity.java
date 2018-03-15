@@ -1,4 +1,4 @@
-package com.example.android.courtcounter;
+package com.example.android.courtcounter.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,13 +6,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.android.courtcounter.R;
+import com.example.android.courtcounter.keys.Keys;
+
 public class MainActivity extends AppCompatActivity {
 
     private int scoreTeamA = 0;
     private int scoreTeamB = 0;
     private TextView scoreViewTeamA;
     private TextView scoreViewTeamB;
-    private TextView result;
+    private TextView tvResult;
     private Button btnTeamAaddThree;
     private Button btnTeamAaddTwo;
     private Button btnTeamAaddOne;
@@ -21,14 +24,35 @@ public class MainActivity extends AppCompatActivity {
     private Button btnTeamBaddOne;
     private Button btnResult;
     private View[] views;
+    private boolean result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null){
+            scoreTeamA = savedInstanceState.getInt(Keys.INT_SCORE_TEAM_A);
+            scoreTeamB = savedInstanceState.getInt(Keys.INT_SCORE_TEAM_B);
+            result = savedInstanceState.getBoolean(Keys.BOOLEAN_RESULT);
+        }
+
         setContentView(R.layout.activity_main);
         setViews();
-        displayForTeamA(0);
-        displayForTeamB(0);
+        displayForTeamA(scoreTeamA);
+        displayForTeamB(scoreTeamB);
+
+        if (result){
+            displayResult();
+            disableUserInputs(views);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt(Keys.INT_SCORE_TEAM_A, scoreTeamA);
+        outState.putInt(Keys.INT_SCORE_TEAM_B, scoreTeamB);
+        outState.putBoolean(Keys.BOOLEAN_RESULT, result);
+        super.onSaveInstanceState(outState);
     }
 
     /**
@@ -37,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private void setViews() {
         scoreViewTeamA = (TextView) findViewById(R.id.team_a_score);
         scoreViewTeamB = findViewById(R.id.team_b_score);
-        result = findViewById(R.id.tv_result);
+        tvResult = findViewById(R.id.tv_result);
         btnTeamAaddThree = findViewById(R.id.btn_team_a_plus_three);
         btnTeamAaddTwo = findViewById(R.id.btn_team_a_plus_two);
         btnTeamAaddOne = findViewById(R.id.btn_team_a_free_throw);
@@ -114,12 +138,13 @@ public class MainActivity extends AppCompatActivity {
      * Resets the score to 0 for both team to start it over again
      */
     public void resetScores(View view) {
-        result.setVisibility(View.GONE);
+        tvResult.setVisibility(View.GONE);
         scoreTeamA = 0;
         scoreTeamB = 0;
         displayForTeamA(0);
         displayForTeamB(0);
         activateUserInputs();
+        result = false;
     }
 
     /**
@@ -132,15 +157,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Fires on click of Result button. Disables other buttons after displaying result.
+     * Fires on click of Result button. Disables other buttons after displaying tvResult.
      */
     public void result(View view) {
         displayResult();
         disableUserInputs(views);
+        result = true;
     }
 
     /**
-     * Disables all user input after displaying result until reset
+     * Disables all user input after displaying tvResult until reset
      */
     private void disableUserInputs(View[] views) {
         for (View view : views) {
@@ -149,16 +175,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Displays result
+     * Displays tvResult
      */
     private void displayResult() {
-        result.setVisibility(View.VISIBLE);
+        tvResult.setVisibility(View.VISIBLE);
         if (scoreTeamA > scoreTeamB) {
-            result.setText(getString(R.string.label_win).replace("#", getString(R.string.label_team_a)));
+            tvResult.setText(getString(R.string.label_win).replace("#", getString(R.string.label_team_a)));
         } else if (scoreTeamB > scoreTeamA) {
-            result.setText(getString(R.string.label_win).replace("#", getString(R.string.label_team_b)));
+            tvResult.setText(getString(R.string.label_win).replace("#", getString(R.string.label_team_b)));
         } else {
-            result.setText(getString(R.string.label_tie));
+            tvResult.setText(getString(R.string.label_tie));
         }
     }
 }

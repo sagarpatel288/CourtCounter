@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.android.courtcounter.MainActivity"
+    android:layout_height="wrap_content"
+    tools:context="com.example.android.courtcounter.ui.MainActivity"
     android:paddingTop="@dimen/view_space"
     android:paddingBottom="@dimen/view_space_large"
     android:baselineAligned="false"
@@ -14,7 +14,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/view_space_large"
+        >
 
         <LinearLayout
             android:id="@+id/layout_teams_both"
@@ -127,41 +129,48 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_reset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/view_space_medium"
-            android:layout_marginRight="@dimen/view_space_medium"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:text="@string/label_reset"
-            android:onClick="resetScores"
-            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_space_xx_large"
+            android:layout_below="@id/layout_teams_both"
+            >
 
-        <Button
-            android:id="@+id/btn_result"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/view_space_medium"
-            android:layout_marginLeft="@dimen/view_space_medium"
-            android:layout_alignParentBottom="true"
-            android:text="@string/label_result"
-            android:onClick="result"
-            />
+            <!--centerInParent did not work here-->
+            <TextView
+                android:id="@+id/tv_result"
+                style="@style/WrapStyle"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:textColor="@color/txtScoreColor"
+                android:textSize="@dimen/txt_heading_one"
+                android:textStyle="italic"/>
 
-        <TextView
-            android:id="@+id/tv_result"
-            style="@style/WrapStyle"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:layout_above="@id/btn_result"
-            android:layout_marginBottom="@dimen/view_space_large"
-            android:textColor="@color/txtScoreColor"
-            android:textStyle="italic"
-            android:textSize="@dimen/txt_heading_one"
-            />
+            <Button
+                android:id="@+id/btn_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/view_space_medium"
+                android:layout_marginRight="@dimen/view_space_medium"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:text="@string/label_reset"
+                android:onClick="resetScores"
+                />
+
+            <Button
+                android:id="@+id/btn_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/view_space_medium"
+                android:layout_marginLeft="@dimen/view_space_medium"
+                android:layout_alignParentBottom="true"
+                android:text="@string/label_result"
+                android:onClick="result"
+                />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
